@@ -3,10 +3,10 @@ import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/ui/CategoryGridTile";
 
 function CategoriesScreen({ navigation }) {
-
+    
     function renderCategoryItem(itemData) {
         function mealHandler() {
-            navigation.navigate();
+            navigation.navigate('listMeals', { categoryId: itemData.item.id, categoryTitle: itemData.item.title });
         }
         return (<CategoryGridTile title={itemData.item.title}
             color={itemData.item.color}
