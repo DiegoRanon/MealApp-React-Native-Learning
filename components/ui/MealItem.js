@@ -1,6 +1,9 @@
 import { View, Text, Pressable, Image, StyleSheet, Platform } from "react-native";
 
-function MealItem({ title, imageUrl, duration, complexity, affordability, onPress}) {
+function MealItem({ meal, title, imageUrl, duration, complexity, affordability, onPress}) {
+
+    console.log(meal)
+
     return (
         <View style={styles.root}>
             <Pressable android_ripple={{color:"#ccc"}} style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]} onPress={onPress}>
@@ -9,11 +12,7 @@ function MealItem({ title, imageUrl, duration, complexity, affordability, onPres
                         <Image source={{ uri: imageUrl }} style={styles.image} />
                         <Text style={styles.title}>{title}</Text>
                     </View>
-                    <View style={styles.details}>
-                        <Text style={styles.detailItem}>{duration}m</Text>
-                        <Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
-                        <Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
-                    </View>
+                    
                 </View>
             </Pressable>
         </View>
@@ -44,16 +43,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         padding: 8,
         textAlign: "center"
-    },
-    details: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 8
-    },
-    detailItem: {
-        marginHorizontal: 4,
-        fontSize: 12
     },
     innerContainer: {
         borderRadius: 8,

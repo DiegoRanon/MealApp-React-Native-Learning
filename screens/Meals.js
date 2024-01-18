@@ -12,9 +12,9 @@ function Meals({ route, navigation }) {
 
     function renderMeals(itemData) {
         function mealHandler() {
-            navigation.navigate('MealDetail', {title: itemData.item.title})
+            navigation.navigate('MealDetail', {title: itemData.item.title, meal:itemData.item})
         }
-        return <MealItem onPress={mealHandler} title={itemData.item.title} imageUrl={itemData.item.imageUrl} duration={itemData.item.duration} complexity={itemData.item.complexity} affordability={itemData.item.affordability} />
+        return <MealItem onPress={mealHandler} meal={itemData.item} title={itemData.item.title} imageUrl={itemData.item.imageUrl} duration={itemData.item.duration} complexity={itemData.item.complexity} affordability={itemData.item.affordability} />
     }
 
     /** Pratique individuelle 

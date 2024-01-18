@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Colors from "./constant/Colors"
 import Meal from './screens/Meals';
-import MealDetail from './screens/mealDetail';
+import MealDetail from './screens/MealDetail';
 
 const Stack = createNativeStackNavigator();
 
