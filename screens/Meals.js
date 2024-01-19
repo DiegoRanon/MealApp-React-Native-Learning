@@ -1,9 +1,12 @@
 import { View, StyleSheet, Text, FlatList } from "react-native";
 import { MEALS } from "../data/dummy-data";
+import { useState } from "react";
 import MealItem from "../components/ui/MealItem"
 
 function Meals({ route, navigation }) {
     const catId = route.params.categoryId;
+
+    const [favoriteMeals, setFavoriteMeals] = useState([]);
     
     // Solution
     const displayedMeals = MEALS.filter((mealItem) => {

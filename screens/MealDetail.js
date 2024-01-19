@@ -1,12 +1,29 @@
-import { View, StyleSheet, Image, Text, FlatList, ScrollView } from "react-native";
+import { View, StyleSheet, Image, Text, FlatList, ScrollView, Button } from "react-native";
+import { useLayoutEffect } from "react";
 import Colors from "../constant/Colors";
+import List from "../components/ui/List";
+import IconButton from "../components/ui/IconButton";
 
 
-function MealDetail({ route }) {
+function MealDetail({ route, navigation }) {
     const meal = route.params.meal;
+    const favoriteMeals = route.params.favoriteMeals
+
+
+    function addFavorite() {
+        console.log(meal.title)
+    }
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => {
+                return <IconButton icon={"star"} color={'white'}onPress={addFavorite}/>
+            }
+        })
+    }, [navigation, ])
 
     function renderIngredients(itemData) {
-        return (<Text>{itemData.item}</Text>)
+        return (<List ingredient={itemData.item}/>)
     }
     return (
         <ScrollView>
